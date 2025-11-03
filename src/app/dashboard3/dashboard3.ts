@@ -5,11 +5,11 @@ import { Footer } from "../footer/footer";
 import { Navbar } from '../navbar/navbar';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-dashboard3',
   imports: [RouterModule, Navbar, Sidebar, Footer],
-  templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css'
+  templateUrl: './dashboard3.html',
+  styleUrl: './dashboard3.css'
 })
-export class Dashboard {
+export class Dashboard3 {
 
 }
