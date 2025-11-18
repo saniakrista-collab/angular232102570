@@ -71,11 +71,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+            <a [routerLink]="['/mahasiswa']" routerLinkActive="router-link-active" class="nav-link {{ (moduleName =='mahasiswa') ? 'active' : '' }}">
+              <i class="fas fa-graduation-cap"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Mahasiswa
               </p>
             </a>
           </li>
@@ -88,18 +87,24 @@
                 <span class="badge badge-info right">6</span>
               </p>
             </a>
+          </li> 
+          <li class="nav nav-treeview {{ (moduleName == 'dashboard' || moduleName == 'dashboard2' || moduleName == 'dashboard3') && 'menu-open' }}">
+              <a href="#" class="nav-link {{ (moduleName == 'dashboard' || moduleName == 'dashboard2' || moduleName == 'dashboard3') && 'active' }}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" class="nav-link {{ (moduleName == 'dashboard') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboar v1</p>
+                </a>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Top Navigation</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
-                </a>
+              </ul>
               </li>
               <li class="nav-item">
                 <a href="pages/layout/boxed.html" class="nav-link">
@@ -138,7 +143,6 @@
                 </a>
               </li>
             </ul>
-          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -672,7 +676,6 @@
               <p>Informational</p>
             </a>
           </li>
-        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
