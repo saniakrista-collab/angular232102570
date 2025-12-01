@@ -5,12 +5,18 @@ import { Admin } from './admin/admin';
 import { Dashboard2 } from './dashboard2/dashboard2';
 import { Dashboard3 } from './dashboard3/dashboard3';
 import { Mahasiswa } from './mahasiswa/mahasiswa';
+import { outentikasiGuard } from './outentikasi-guard';
+import { Logout } from './logout/logout';
 export const routes: Routes = [
     { path: "", redirectTo: "login", pathMatch: "full"},
     { path: "admin", component: Admin},
-    { path: "dashboard", component: Dashboard},
-    { path: "dashboard2", component: Dashboard2},
-    { path: "dashboard3", component: Dashboard3},
+    { path: "dashboard", component: Dashboard, canActivate: [outentikasiGuard]},
+    { path: "dashboard2", component: Dashboard2, canActivate: [outentikasiGuard]},
+    { path: "dashboard3", component: Dashboard3, canActivate: [outentikasiGuard]},
     { path: "login", component: Login },
-    { path: "mahasiswa", component: Mahasiswa},
+    { path: "logout", component: Logout},
+    { path: "mahasiswa", component: Mahasiswa, canActivate: [outentikasiGuard]},
+
 ];
+
+

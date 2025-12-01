@@ -1,13 +1,15 @@
 <div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Krista Sania</b> 232102570</a>
+  </div>
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Krista Sania</b>(232102570)</a>
-    </div>
-    <div class="card-body">
+  <div class="card">
+    <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-          <input type="email" class="form-control" placeholder="Email">
+      <!-- <form action="../../index3.html" method="post"> -->
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="User Id" id="idText">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -15,7 +17,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" id="passwordText">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -33,12 +35,14 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button class="btn btn-primary btn-block" [routerLink]="['/admin']" routerLinkActive="router-link-active">Sign In</button>
+            <button class="btn btn-primary btn-block" (click)="signIn()" >Sign In</button>
           </div>
           <!-- /.col -->
         </div>
+      <!-- </form> -->
 
-      <div class="social-auth-links text-center mt-2 mb-3">
+      <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
         </a>
@@ -53,8 +57,40 @@
       </p>
       <p class="mb-0">
         <a href="register.html" class="text-center">Register a new membership</a>
-    <!-- /.card-body -->
+      </p>
+    </div>
+    <!-- /.login-card-body -->
   </div>
-  <!-- /.card -->
 </div>
 <!-- /.login-box -->
+
+<div class="modal" id="peringatanModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title">
+          <i class="fa fa-plus"></i> Peringatan
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-12">
+            <span id="pm_message"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          <i class="fa fa-check"></i> OK
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
