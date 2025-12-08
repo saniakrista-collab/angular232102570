@@ -13,10 +13,10 @@ declare const $: any;
   selector: 'app-forex',
   standalone: true,
   imports: [Footer, Navbar, Sidebar],
-  templateUrl: './forex.component.html',
-  styleUrl: './forex.component.css',
+  templateUrl: './forex.html',
+  styleUrl: './forex.css',
 })
-export class ForexComponent implements AfterViewInit {
+export class Forex implements AfterViewInit {
   private _table1: any;
 
   constructor(private renderer: Renderer2, private httpClient: HttpClient) {}
