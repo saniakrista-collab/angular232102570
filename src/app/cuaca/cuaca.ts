@@ -19,10 +19,9 @@ declare const moment: any;
 })
 export class Cuaca implements AfterViewInit {
   private table1: any;
-  public currentWeather: any = null; // Data untuk Card Atas
+  public currentWeather: any = null; 
   public todayDate: string = "";
-  private map: any; // Variabel untuk Peta
-
+  private map: any; 
   constructor(private renderer: Renderer2, private http: HttpClient) {
     this.renderer.removeClass(document.body, "sidebar-open");
     this.renderer.addClass(document.body, "sidebar-closed");
