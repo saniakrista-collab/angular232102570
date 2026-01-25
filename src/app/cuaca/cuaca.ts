@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, Renderer2 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Penting untuk *ngIf dan pipe number
 import * as L from 'leaflet'; // Import Leaflet
 import { Navbar } from '../navbar/navbar';
 import { Sidebar } from '../sidebar/sidebar';
 import { Footer } from '../footer/footer';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 declare const $: any;
 declare const moment: any;
@@ -19,9 +19,10 @@ declare const moment: any;
 })
 export class Cuaca implements AfterViewInit {
   private table1: any;
-  public currentWeather: any = null; 
+  public currentWeather: any = null; // Data untuk Card Atas
   public todayDate: string = "";
-  private map: any; 
+  private map: any; // Variabel untuk Peta
+
   constructor(private renderer: Renderer2, private http: HttpClient) {
     this.renderer.removeClass(document.body, "sidebar-open");
     this.renderer.addClass(document.body, "sidebar-closed");
@@ -53,13 +54,15 @@ export class Cuaca implements AfterViewInit {
         },
       ],
     });
+    this.getData("Pontianak");
   }
 
   getData(city: string): void {
     if (!city) return;
     city = encodeURIComponent(city);
-    const apiKey = "74de0875f74c8a25b85a3a90131f195e";
+    const apiKey = "67f7f49f9fc7faea9580f7220ad08697"; // Ganti dengan API Key Anda sendiri jika limit
 
+    // 1. AMBIL DATA CUACA SAAT INI (Current Weather)
     this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
       .subscribe((data: any) => {
         this.currentWeather = data; // Simpan data ke variabel
@@ -114,8 +117,10 @@ export class Cuaca implements AfterViewInit {
     }
 
     // Buat map baru
-    this.map = L.map('map-container').setView([lat, lon], 10);
-
+    this.map = L.map('map-container', {
+      attributionControl: false // Ini akan menyembunyikan tulisan tersebut
+    }).setView([lat, lon], 10);
+    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);

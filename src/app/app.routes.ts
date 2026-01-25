@@ -9,6 +9,7 @@ import { outentikasiGuard } from './outentikasi-guard';
 import { Logout } from './logout/logout';
 import { Forex } from './forex/forex';
 import { Cuaca } from './cuaca/cuaca';
+import { Crypto } from './crypto/crypto';
 export const routes: Routes = [
     { path: "", redirectTo: "login", pathMatch: "full"},
     { path: "admin", component: Admin},
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: "login", component: Login },
     { path: "logout", component: Logout},
     { path: "mahasiswa", component: Mahasiswa, canActivate: [outentikasiGuard]},
+    { path: "crypto", component: Crypto, canActivate: [outentikasiGuard]},
 
 ];
 
